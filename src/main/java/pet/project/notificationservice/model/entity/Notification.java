@@ -1,5 +1,6 @@
 package pet.project.notificationservice.model.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -29,16 +30,22 @@ public class Notification {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @Column(nullable = false)
     private Long user_id;
 
     @Enumerated(value = EnumType.STRING)
+    @Column(nullable = false)
     private NotificationType type;
 
+    @Column(nullable = false)
     private String message;
 
+    @Column(nullable = false)
     private Long related_id;
 
+    @Column(nullable = false)
     private Boolean read;
 
+    @Column(nullable = false)
     private Instant created_at;
 }
